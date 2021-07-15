@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.proyecto2"
+        applicationId "com.pilartectoapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
