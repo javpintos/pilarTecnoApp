@@ -8,7 +8,7 @@ import { Icon } from 'react-native-elements'
 
 const Tab = createMaterialBottomTabNavigator();
 
-export const Tabs = () => {
+export const Tabs = (props) => {
     return (
         <Tab.Navigator
             tabBarOptions={{

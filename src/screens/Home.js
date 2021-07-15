@@ -42,7 +42,6 @@ const width = Dimensions.get('window').width
                 <TouchableOpacity
                     onPress={() => this._onHomePress()}
                 >
-                    
                     <ImageBackground
                         style={[styles.button, {backgroundColor:'transparent'}]}
                         imageStyle={{borderRadius:15}}
@@ -56,43 +55,57 @@ const width = Dimensions.get('window').width
             </View>
 
             <View style={{}}>
-              <ImageBackground
-                style={[styles.button, {backgroundColor:'transparent'}]}
-                imageStyle={{borderRadius:15}}
-                source={require('../assets/patterns/pattern2.jpg')}
-              >
-                <Text style={styles.text}>
-                  Profile
-                </Text>
-              </ImageBackground>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate("Profile")}
+                >
+                    <ImageBackground
+                        style={[styles.button, {backgroundColor:'transparent'}]}
+                        imageStyle={{borderRadius:15}}
+                        source={require('../assets/patterns/pattern2.jpg')}
+                    >
+                        <Text style={styles.text}>
+                        Profile
+                        </Text>
+                    </ImageBackground>
+                </TouchableOpacity>
             </View>
+
           </View>
 
           <View style={{flexDirection:'row'}}>
             
-          <View style={{}}>
-              <ImageBackground
-                style={[styles.button, {backgroundColor:'transparent'}]}
-                imageStyle={{borderRadius:15}}
-                source={require('../assets/patterns/pattern3.jpg')}
-              >
-                <Text style={styles.text}>
-                  Posts
-                </Text>
-              </ImageBackground>
+            <View style={{}}>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate("Posts")}
+                >
+                    <ImageBackground
+                        style={[styles.button, {backgroundColor:'transparent'}]}
+                        imageStyle={{borderRadius:15}}
+                        source={require('../assets/patterns/pattern3.jpg')}
+                    >
+                        <Text style={styles.text}>
+                        Posts
+                        </Text>
+                    </ImageBackground>
+                </TouchableOpacity>
             </View>
 
             <View style={{}}>
-              <ImageBackground
-                style={[styles.button, {backgroundColor:'transparent'}]}
-                imageStyle={{borderRadius:15}}
-                source={require('../assets/patterns/pattern4.jpg')}
-              >
-                <Text style={styles.text}>
-                  Map
-                </Text>
-              </ImageBackground>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate("Map")}
+                >
+                    <ImageBackground
+                        style={[styles.button, {backgroundColor:'transparent'}]}
+                        imageStyle={{borderRadius:15}}
+                        source={require('../assets/patterns/pattern4.jpg')}
+                    >
+                        <Text style={styles.text}>
+                        Map
+                        </Text>
+                    </ImageBackground>
+                </TouchableOpacity>
             </View>
+
           </View>
           
           </ImageBackground>        
