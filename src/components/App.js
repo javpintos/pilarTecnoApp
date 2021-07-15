@@ -10,12 +10,14 @@ import {
     useColorScheme,
     View,
   } from 'react-native';
-  
-  import Home from '../screens/Home'
+import AppStack from '../routs/app';
+import { NavigationContainer } from '@react-navigation/native';
 
-  const App = () => {
+  const App = (props) => {
     return( 
-        <Home />
+      <NavigationContainer >
+        <AppStack />
+      </NavigationContainer>
     )
   }
 
