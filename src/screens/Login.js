@@ -40,17 +40,8 @@ const width = Dimensions.get('window').width
     text: {
       fontSize:30,
       fontWeight:'bold',
-      color:'white',
+      color:'#fff',
       textAlign:'center'
     },
-    button: {
-      margin: width/20,
-      height:width/2.5,
-      width:width/2.5,
-      borderRadius:15,
-      justifyContent:'center',
-      backgroundColor:'#fff',
-      zIndex:1
-    }
   })
   
