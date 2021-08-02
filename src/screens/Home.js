@@ -21,7 +21,7 @@ const width = Dimensions.get('window').width
     _onHomePress = () => {
         Alert.alert(
             "Hi!",
-            "You are already there",
+            "You are already in Home",
             [
                 { text: "OK", onPress: () => console.log("OK pressed") }
             ]

@@ -1,51 +1,3 @@
-/* import React, { Component } from 'react';
-import {
-    SafeAreaView,
-    ScrollView,
-    Dimensions,
-    StatusBar,
-    StyleSheet,
-    Text,
-    ImageBackground,
-    TouchableOpacity,
-    useColorScheme,
-    View,
-    Alert
-  } from 'react-native';
-
-const height = Dimensions.get('window').height
-const width = Dimensions.get('window').width
-
-  export default class Profile extends React.Component {
-
-    render(){
-        return(
-        <SafeAreaView>
-          <ImageBackground
-            style={{height, justifyContent:'center', alignItems:'center', flexDirection:'column'}}
-            imageStyle={{}}
-            source={require('../assets/images/fondo7.jpg')}
-          >
-            <View>
-                    <Text style={styles.text}>
-                        Profile screen in construction
-                    </Text>
-            </View>
-          </ImageBackground>        
-        </SafeAreaView>
-        )}
-  }
-
-  const styles = StyleSheet.create({
-    text: {
-      fontSize:30,
-      fontWeight:'bold',
-      color:'#fff',
-      textAlign:'center'
-    },
-  })
-   */
-
 import React, { Component } from 'react';
 import {
   SafeAreaView,
@@ -53,6 +5,8 @@ import {
   StyleSheet,
   Text,
   View,
+  ImageBackground,
+  TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux'
 import { Avatar, Button } from 'react-native-elements'
@@ -67,54 +21,73 @@ class Profile extends React.Component {
     this.state = {
       email: '',
       photoURL: '',
-      name: ''
-    }
+      name: '',
+    };
   }
-
   componentDidMount = () => {
-    const { user } = this.props
-    console.log('user profile: ' + JSON.stringify(user))
+    const {user} = this.props;
+    console.log('user profile: ' + JSON.stringify(user));
     this.setState({
       email: user.providerData[0].email,
       photoURL: user.providerData[0].photoURL,
-      name: user.providerData[0].displayName
-    })
-  }
-
+      name: user.providerData[0].displayName,
+    });
+  };
   render() {
-    const { email, photoURL, name } = this.state
+    const {email, photoURL, name} = this.state;
     return (
-      <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={styles.content}>
-          <View style={{ alignItems: 'center' }}>
-            <Avatar
-              rounded
-              source={{ uri: photoURL }}
-              size='xlarge'
-            />
-            <View style={styles.dataContainer}>
-              <Text style={styles.infoText}>{email}</Text>
-              <Text style={styles.infoText}>{name}</Text>
+      <SafeAreaView
+        style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ImageBackground
+          style={{height}}
+          source={require('../assets/images/fondo6.jpg')}>
+          <View style={styles.content}>
+            <View style={{alignItems: 'center'}}>
+              {photoURL ? (
+                <Avatar rounded source={{uri: photoURL}} size="xlarge" />
+              ) : (
+                <Avatar
+                  rounded
+                  source={require('../assets/images/avatar.png')}
+                  size="xlarge"
+                />
+              )}
+                  <Text style={styles.infoText}>{email}</Text>
+                  {name ? (
+                    <Text style={styles.infoText}>{name}</Text>
+                  ) : (
+                    <Text style={styles.infoText}>Username</Text>
+                  )}                
             </View>
           </View>
-        </View>
-        <View style={{ flex: 1, top: 50, width: width * 0.5 }}>
-          <Button title='Salir' onPress={() => {
-            auth()
-              .signOut()
-              .then(async () => {
-                console.log('User signed out!'),
-                  this.props.setUser({ user: null })
-                try {
-                  await AsyncStorage.delItem('islogged')
-                } catch (e) {
-                  console.log('Hubo un error :' + e)
-                }
-              })
-          }} />
-        </View>
+          <View
+            style={{
+              flex: 1,
+              top: 50,
+              width: width,
+              paddingLeft: width / 5,
+              paddingRight: width / 5,
+            }}>
+            <Button
+              title="Salir"
+              onPress={() => {
+                auth()
+                  .signOut()
+                  .then(async () => {
+                    console.log('User signed out!'),
+                      this.props.setUser({user: null});
+                    try {
+                      await AsyncStorage.removeItem('isloged');
+                    } catch (e) {
+                      console.log('Hubo un error :' + e);
+                    }
+                  });
+              }}
+            />
+          </View>
+        </ImageBackground>
       </SafeAreaView>
-    )
+    );
   }
 }
 
@@ -122,33 +95,28 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     fontWeight: 'bold',
-    // color:'#fff',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   content: {
     flex: 1,
     top: 50,
     justifyContent: 'center',
-    // alignItems:'center'
   },
   dataContainer: {
     top: 50,
-    width
+    width,
   },
   infoText: {
     textAlign: 'center',
     fontSize: 18,
-    color: 'grey'
-  }
-})
-
+    color: '#4A235A',
+    fontWeight: 'bold',
+  },
+});
 const mapDispatchToProps = dispatch => ({
-  setUser: ({ user }) =>
-    dispatch(actions.user.setUser({ user })),
-})
-
+  setUser: ({user}) => dispatch(actions.user.setUser({user})),
+});
 const mapStateToProps = state => ({
-  user: state.user.user
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)((Profile))
+  user: state.user.user,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
