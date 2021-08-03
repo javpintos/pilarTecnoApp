@@ -91,7 +91,7 @@ class Login extends React.Component {
                     console.log('res login: ' + JSON.stringify(data.user));
                     try {
                       await AsyncStorage.setItem(
-                        'isloged',
+                        'islogged',
                         JSON.stringify(data.user),
                       );
                     } catch (e) {
@@ -181,10 +181,10 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setUser: data => dispatch(actions.user.setUser(data)),
+  setUser: (data) => dispatch(actions.user.setUser(data)),
 });
 const mapStateToProps = state => ({
   user: state.user.user,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)((Login));

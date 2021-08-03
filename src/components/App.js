@@ -16,8 +16,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 import auth from '@react-native-firebase/auth';
-import { useDispatch, } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { actions } from '../store';
+
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 const App = props => {
   

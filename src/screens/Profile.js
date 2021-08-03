@@ -77,7 +77,7 @@ class Profile extends React.Component {
                     console.log('User signed out!'),
                       this.props.setUser({user: null});
                     try {
-                      await AsyncStorage.removeItem('isloged');
+                      await AsyncStorage.removeItem('islogged');
                     } catch (e) {
                       console.log('Hubo un error :' + e);
                     }
@@ -119,4 +119,4 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   user: state.user.user,
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)((Profile));
