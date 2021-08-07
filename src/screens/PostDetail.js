@@ -37,7 +37,7 @@ export default class PostDetail extends React.Component {
             style={{height}}
             source={require('../assets/images/fondo7.jpg')}
         >
-         <Text>PostDetail</Text>
+         <Text>Post Detail</Text>
         </ImageBackground>
     </SafeAreaView>  
     )}

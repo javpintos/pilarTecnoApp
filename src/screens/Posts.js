@@ -57,7 +57,6 @@ class Posts extends React.Component {
     return (
       <SafeAreaView style={{
         flex: 1, justifyContent: 'center', alignItems: 'center',
-        //backgroundColor: 'white'
       }}>
         {
           !this.props.posts ?

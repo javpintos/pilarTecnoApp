@@ -29,7 +29,6 @@ class PostCreate extends React.Component {
 
   _send = ()=>{
     const { title, body } = this.state
-    ///VALIDACIONES
     this.props.createPost({title, body}).then(()=>{
       this.props.navigation.goBack()
     })
@@ -66,11 +65,9 @@ class PostCreate extends React.Component {
                   styles.button,                 
                 ]}
                 >
-                <Text>Nuevo Post</Text>
+                <Text>New Post</Text>
         </TouchableOpacity>
-        {/*<Button title='Postear' onPress={()=>this._send()} style={{width:width*0.8}}/>*/}
       </ImageBackground>
-      {/* </View> */}
       </SafeAreaView>
     )
   }
@@ -80,7 +77,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize:30,
     fontWeight:'bold',
-    // color:'#fff',
     textAlign:'center'
   },
   content: {
