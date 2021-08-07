@@ -13,12 +13,11 @@ import {
   Alert
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input, Button } from 'react-native-elements'
-import auth from 'react-native-firebase/auth'
+import { Input, Button } from 'react-native-elements';
+import auth from '@react-native-firebase/auth';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Home from './Home';
 import user from '../store/reducers/user';
 
 import { connect } from 'react-redux';
