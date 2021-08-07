@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#cc3399',
+    color: 'grey',
     textAlign: 'center',
     backgroundColor: '#F4ECF7',
     margin: width / 20,
