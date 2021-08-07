@@ -40,7 +40,7 @@ class Profile extends React.Component {
         style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <ImageBackground
           style={{height}}
-          source={require('../assets/images/fondo6.jpg')}>
+          source={require('../assets/images/fondo7.jpg')}>
           <View style={styles.content}>
             <View style={{alignItems: 'center'}}>
               {photoURL ? (
@@ -69,7 +69,7 @@ class Profile extends React.Component {
               paddingRight: width / 5,
             }}>
             <Button
-              title="Salir"
+              title="Log out"
               onPress={() => {
                 auth()
                   .signOut()
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   infoText: {
     textAlign: 'center',
     fontSize: 18,
-    color: '#4A235A',
+    color: 'white',
     fontWeight: 'bold',
   },
 });

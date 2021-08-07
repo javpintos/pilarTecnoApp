@@ -12,7 +12,6 @@ import {
   View,
   Alert
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
@@ -57,13 +56,12 @@ class Login extends React.Component {
         <View style={styles.content}>
           <ImageBackground
             style={{width, height}}
-            source={require('../assets/images/fondo6.jpg')}>
+            source={require('../assets/images/fondo7.jpg')}>
             <Text style={styles.text}> Login </Text>
             <Input
               style={styles.input}
-              placeholder="Ingrese email"
+              placeholder="Ingrese su email"
               value={email}
-              leftIcon={<Icon name="user" size={24} color="#512E5F" />}
               onChangeText={em => this.setState({email: em})}
             />
 
@@ -72,14 +70,13 @@ class Login extends React.Component {
               placeholder="Password"
               secureTextEntry={true}
               value={password}              
-              leftIcon={<Icon name="lock" size={24} color="#512E5F" />}
               onChangeText={psw => this.setState({password: psw})}
             />
 
             <TouchableOpacity
               style={[
                 styles.button,
-                {backgroundColor: 'rgba(165, 105, 189, 0.5)'},
+                {backgroundColor: 'red'},
               ]}
               onPress={() => { 
                 email, password ?( 
@@ -111,7 +108,7 @@ class Login extends React.Component {
               onPress={() => this.props.navigation.navigate('Create')}
               style={[
                 styles.button,
-                {backgroundColor: 'rgba(165, 105, 189, 0.5)'},
+                {backgroundColor: 'red'},
               ]}>
               <Text style={styles.text}>Crear Usuario</Text> 
 						</TouchableOpacity>
@@ -128,7 +125,7 @@ class Login extends React.Component {
                       console.log('res login: ' + JSON.stringify(data.user));
                       try {
                         await AsyncStorage.setItem(
-                          'isloged',
+                          'islogged',
                           JSON.stringify(data.user),
                         );
                       } catch (e) {
@@ -157,14 +154,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#512E5F',
+    color: 'white',
     textAlign: 'center',
     marginTop: 10,
   },
   input: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#512E5F',
+    color: '#cc3399',
     textAlign: 'center',
     backgroundColor: '#F4ECF7',
     margin: width / 20,
@@ -172,9 +169,9 @@ const styles = StyleSheet.create({
 
   button: {
     margin: width / 20,
-    width: width/2,
+    width: width/1.8,
     marginLeft: 90,
-    borderRadius: 35,
+    borderRadius: 15,
     justifyContent: 'center',
   },
 });
