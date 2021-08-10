@@ -14,6 +14,7 @@ import {
 import { Input, Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { actions } from '../store'
+import { fetchPosts }from '../api/index'
 
 const height = Dimensions.get('window').height
 const width = Dimensions.get('window').width
@@ -39,7 +40,7 @@ class PostCreate extends React.Component {
       <SafeAreaView style={{flex:1, justifyContent:'center', alignItems:'center'}}>
       <ImageBackground style={[styles.content,{height, width }]} source={require('../assets/images/fondo7.jpg')}>
         <Input
-          placeholder='Titulo'
+          placeholder='Title'
           inputContainerStyle={{width:width*0.8, alignItems:'flex-start',
           alignSelf:'center', backgroundColor:'rgba(0,0,0,0.5)', pading:15}}
           inputStyle={{color:'white', marginLeft:15}}
@@ -48,7 +49,7 @@ class PostCreate extends React.Component {
           onChangeText={(value)=>this.setState({title:value})}
         />
         <Input
-          placeholder='Descripcion'
+          placeholder='Description'
           inputContainerStyle={{width:width*0.8, alignItems:'flex-start',
           alignSelf:'center', height:height*0.4, backgroundColor:'rgba(0,0,0,0.5)',
           pading:15}}
